@@ -1,0 +1,1 @@
+This is another case study for the completion of Google Data Analytics Professional Certificate. All the data here are personally collected. Data Analytics learned throughout the program has been applied to an MMORPG named "LifeAfter". Inaccurate usage of the words "sales" and "profit" may be contained within this study.
