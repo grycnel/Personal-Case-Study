@@ -1,7 +1,7 @@
 ---
 title: "PERSONAL CASE STUDY: Application of Data Analytics to an MMORPG"
 author: "Graycie Nel Muñoz"
-date: "01/05/2024"
+date: "01/05/2025"
 output: html_document
 ---
 ## About the Game
@@ -151,7 +151,7 @@ profit_sum <- profit %>%
   summarize(sum_value = sum(PROFIT))
 print(profit_sum)
 ```
-From this, we know that the Engineering Plastics sells well followed by the Medium-Carbon Steel by only 60,000 unit. The difference is close compared to how much the Steel Pipes sold.
+From this, we know that the Engineering Plastics sells well followed by the Medium-Carbon Steel by only 60,000. The difference between the two is closer compared to how much the Steel Pipes sold.
 
 We can delve deeper and figure out what made this possible.
 
@@ -167,11 +167,11 @@ Next, I figure out at what price should each product be sold.
 I start with the Engineering Plastic.
 
 ```{r Recommended Price: Engineering Plastic}
-profit %>% 
+ep_price <- profit %>% 
   group_by(`UNIT COST`) %>%
   filter(ITEM == "Engineering Plastic") %>% 
   summarize (sum_value = sum(QTY)) %>% 
-  arrange(desc(sum_value))
+  arrange(desc(sum_value)) %>% 
 ```
 
 The data above shows that more than half of the Engineering Plastics are sold at a price of $2008. 
@@ -256,9 +256,11 @@ With the data presented above, here are the answers to the business tasks:
   * The most profitable product based on ranking are as follows: Engineering Plastic, followed by Medium-carbon steel, and then Steel Pipes.
   * Skills that are recommended to be enhanced are those that produces Engineering Plastics and Medium-Carbon Steel.
   * The recommended prices of these 3 products are as follows:
-  * Engineering Plastics - $2008
+  * Engineering Plastics - The next default price lower than $2008
   * Medium-carbon Steel - $2176
   * Steel Pipes - $535
+
+The price regarding Engineering Plastics was made in consideration of the decline of its sales towards the end of the year.
 
 In addition, I would also like to recommend to prioritize upgrading the skills that can produce *Medium-Carbon Steel* than those that makes Engineering Plastics. There has been a decline in the sales of Engineering Plastics towards the end of the year. Additional studies needs to be done in order to figure out the cause. For now, i believe it is wise to hold back the supplies for Engineering Plastics untilt here is a steady increase in demand once again.
 
